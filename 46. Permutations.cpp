@@ -16,6 +16,7 @@ public:
     // A[2] + permutation of (A[1..n] - A[2])
     // ...
     // A[n] + permutation of (A[1..n] - A[n]).
+    // backtracking
 	void permuteHelper(vector<int> &nums, int begin, vector<vector<int>> &result) {
 		if (begin == nums.size()) {
 		    // one permutation instance
