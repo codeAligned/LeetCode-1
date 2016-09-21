@@ -6,8 +6,8 @@ class Solution {
 public:
     vector<vector<int>> permute(vector<int>& nums) {
 	    vector<vector<int>> result;
-	    
-	    permuteHelper(nums, 0, result);
+	    vector<int> temp;
+	    Helper(nums, 0, result, temp);
 	    return result;
     }
     
@@ -17,7 +17,7 @@ public:
     // ...
     // A[n] + permutation of (A[1..n] - A[n]).
     // backtracking
-	void permuteHelper(vector<int> &nums, int begin, vector<vector<int>> &result) {
+	void Helper(vector<int>& nums, int begin, vector<vector<int>>& result, vector<int>& temp) {
 		if (begin == nums.size()) {
 		    // one permutation instance
 		    result.push_back(nums);
@@ -26,7 +26,7 @@ public:
 		
 		for (int i = begin; i < nums.size(); ++i) {
 		    swap(nums[begin], nums[i]);
-		    permuteHelper(nums, begin + 1, result);
+		    Helper(nums, begin + 1, result, temp);
 		    // reset
 		    swap(nums[begin], nums[i]);
 		}
