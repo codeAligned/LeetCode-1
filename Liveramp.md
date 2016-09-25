@@ -1,5 +1,77 @@
 ### Liveramp
 
+#### My Online Assesment
+
+*   task1. Monkey
+```cpp
+// Time: O(N)
+// Space: O(N)
+
+#include <queue>
+
+int solution(vector<int> &A, int D) {
+    // write your code in C++11 (g++ 4.8.2)
+    int size = A.size();
+    vector<int> earliestTime;
+    deque<int> dq;
+    if (D <= 0)
+        return -1;
+    int count = 0;
+    for (int i = 0; i < size; ++i) {
+        // remove numbers out of range
+        while (!dq.empty() && dq.front() < i - D + 1)
+            dq.pop_front();
+        // remove numbers greater than the incoming number
+        while (!dq.empty() && A[i] != -1 && A[dq.back()] > A[i])
+            dq.pop_back();
+        // D -1 in a row will fail to cross river
+        if (A[i] != -1) {
+            dq.push_back(i);
+            count = 0;
+        }
+        else
+            count += 1;
+        if (count == D)
+            return -1;
+        // record earliest time for each sliding window
+        if (i >= D - 1)
+            earliestTime.push_back(A[dq.front()]);
+    }
+    // cross river time depends on the biggest time among all earliest time
+    int max = -1;
+    for (size_t j = 0; j < earliestTime.size(); ++j) {
+        if (earliestTime[j] > max)
+            max = earliestTime[j];
+    }
+    return max;
+}
+```
+*   task2. 
+    *   explain
+    *   why LiveRamp excite you.
+
+>   1.
+
+>   I treat step length D as a window slot, which can represent the range of how far the monkey can reach at one time.
+
+>   Then I use a deque, which is a double-end queue, to record the index of the possible minimum time of reaching each window slot (length D). Then the goal becomes to find the maximum among all the possible minimum time.
+
+>   As the sliding window moves on, the deque will pop from the front to kick out the index that is out of range. Then the deque will also compare the number on the back with the incoming number (according to the index). If the number in the deque is already bigger than the incoming number, then it has no chance to becoming the minimum, so we remove it from the back, and push the new number in the deque.
+
+>   So at any time, the deque keeps the original sequence in order, as well as the minimum at the front.
+
+>   And during the iteration, we need to handle the situation that there are D -1 in a row, which means there is no way to cross the river.
+
+>   Since the numbers are push to or pop from the deque only once, the time complexity of this algorithms is O(N), where N is the length of array A. While the space complexity is O(N) as well, because the dq is at most D in length, the earliestTime is at most N - D in length.
+
+>   2.
+
+>   I see the big data area so promising that everyone should be connected in some way through any form of data. As a Computer Science major undergraduate student, I had solid foundations on computer systems programming, but far more than enough skills on data science. So I took Machine Learning and Data Science courses online during this Summer, and had an overview of what we can do with a huge amount of data, which really excite me to engage in this area. Since LiveRamp is the leader in data connectivity, which perfectly matches my goal, I really want to join and discover more in the industry, hone my skills with the help of those excellent engineers, and fianlly contribute myself to this area.
+
+
+Interview Preparation
+---
+
 #### 算法题：青蛙过河。
 
 
@@ -91,6 +163,63 @@ public:
 >	2. 青蛙过河的input是 时间--->出现叶子的位置，猴子过河里变成了  石头位置--->出现时间。我们需要做的只是预处理把猴子过河里的input 转置一下，就和青蛙过河的input完全一样了。值得一提的是，题目说同一时间只会有一块石头出现，省得我们再想太多。
 
 >	关于复杂度的问题，就是因为（ii）的预处理，导致我们需要首先判断 “最长的时间 t”，也就是数组A中的max，然后开辟一个数组长度为 t + 1来保存  时间--->石头位置，这样问题又退化到青蛙过河。但是这时候的时间长度可能会比原始数组A要长，所以最后的时空复杂度要求是O(N + max(A))。
+
+```cpp
+// Time: O(N)
+// Space: O(N)
+
+#include <queue>
+
+int solution(vector<int> &A, int D) {
+    // write your code in C++11 (g++ 4.8.2)
+    int size = A.size();
+    vector<int> earliestTime;
+    deque<int> dq;
+    if (D <= 0)
+        return -1;
+    int count = 0;
+    for (int i = 0; i < size; ++i) {
+        // remove numbers out of range
+        while (!dq.empty() && dq.front() < i - D + 1)
+            dq.pop_front();
+        // remove numbers greater than the incoming number
+        while (!dq.empty() && A[i] != -1 && A[dq.back()] > A[i])
+            dq.pop_back();
+        // D -1 in a row will fail to cross river
+        if (A[i] != -1) {
+            dq.push_back(i);
+            count = 0;
+        }
+        else
+            count += 1;
+        if (count == D)
+            return -1;
+        // record earliest time for each sliding window
+        if (i >= D - 1)
+            earliestTime.push_back(A[dq.front()]);
+    }
+    // cross river time depends on the biggest time among all earliest time
+    int max = -1;
+    for (size_t j = 0; j < earliestTime.size(); ++j) {
+        if (earliestTime[j] > max)
+            max = earliestTime[j];
+    }
+    return max;
+}
+```
+
+>   I treat step length D as a window slot, which can represent the range of how far the monkey can reach at one time.
+
+>   Then I use a deque, which is a double-end queue, to record the index of the possible minimum time of reaching each window slot (length D). Then the goal becomes to find the maximum among all the possible minimum time.
+
+>   As the sliding window moves on, the deque will pop from the front to kick out the index that is out of range. Then the deque will also compare the number on the back with the incoming number (according to the index). If the number in the deque is already bigger than the incoming number, then it has no chance to becoming the minimum, so we remove it from the back, and push the new number in the deque.
+
+>   So at any time, the deque keeps the original sequence in order, as well as the minimum at the front.
+
+>   And during the iteration, we need to handle the situation that there are D -1 in a row, which means there is no way to cross the river.
+
+>   Since the numbers are push to or pop from the deque only once, the time complexity of this algorithms is O(N), where N is the length of array A. While the space complexity is O(N) as well, because the dq is at most D in length, the earliestTime is at most N - D in length.
+
 
 ---
 
@@ -285,3 +414,8 @@ public:
 >		3. 面Epic的时候，因为和医疗有关，我是double major，另一个就是biochemistry制药相关，所以也是一个点.
 
 >	当然，我的例子可能不适用于你，但是只是想说，一定要发掘自己最独特的，这样子会对这类问题很有帮助
+
+<br>
+
+>   I see the big data area so promising that everyone should be connected in some way through any form of data. As a Computer Science major undergraduate student, I had solid foundations on computer systems programming, but far more than enough skills on data science. So I took Machine Learning and Data Science courses online during this Summer, and had an overview of what we can do with a huge amount of data, which really excite me to engage in this area. Since LiveRamp is the leader in data connectivity, which perfectly matches my goal, I really want to join and discover more in the industry, hone my skills with the help of those excellent engineers, and fianlly contribute myself to this area.
+
