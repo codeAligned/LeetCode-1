@@ -3,7 +3,7 @@
 #### 算法题：青蛙过河。
 
 
-** 输入一个Array, X，D，最早可以跳过X的时刻。 **
+ 输入一个Array, X，D，最早可以跳过X的时刻。 
 
 1. 有只青蛙要过河，起始位置position 0，一路跳到 X，每次跳得距离 在1 ~ D，一秒可以跳很多次的样子只要有叶子可以停。。。
 2. 每秒都会落下一片叶子，青蛙可以停在上面（叶子不会消失）
@@ -96,7 +96,7 @@ public:
 
 #### M City
 
-** 一个图，节点表示城市，有M个节点和M-1条边，所以是没有环的，用一个array表示这个图，比如T[x]=y的话那么节点x就和y相连，如果T[x]=x就说明x是首都。现在要分别求出到首都距离为1，2，3...M-1的节点数。hashmap结合arraylist搞定。**
+ 一个图，节点表示城市，有M个节点和M-1条边，所以是没有环的，用一个array表示这个图，比如T[x]=y的话那么节点x就和y相连，如果T[x]=x就说明x是首都。现在要分别求出到首都距离为1，2，3...M-1的节点数。hashmap结合arraylist搞定。
 
 > 用一个hashmap重新建了一个图，这样方便查找所有相邻的节点，而不用每次查找整个array。然后用bfs来求每个距离上的节点数。
 
@@ -131,7 +131,7 @@ class Solution:
 
 #### sequence
 
-** 其实是求最大subset，这个set满足里面的数最大的数和最小的数相差不超过1，比如[3,1,2,2,3,4]，那么最长的是[3,2,2,3]，返回4 **
+ 其实是求最大subset，这个set满足里面的数最大的数和最小的数相差不超过1，比如[3,1,2,2,3,4]，那么最长的是[3,2,2,3]，返回4 
 
 >	*	用hashmap统计每个数的重复次数，得到k个不同的数，然后one-by-one scan这k个数，对每个数，计算count[k-1] + count[k] 和 count[k] + count[k+1]的数量，然后更新maxLen。时空复杂度都是O(N)
 
@@ -170,13 +170,13 @@ def max_subsequence(a):
 
 ### The Max
 
-** Bubble sort is O(n) at best, O(n^2) at worst, and its memory usage is O(1). Merge sort is always O(n log n), but its memory usage is O(n). Explain which algorithm you would use to implement a function that takes an array of integers and returns the max integer in the collection, assuming that the length of the array is less than 1000. What if the array length is greater than 1000? **
+ Bubble sort is O(n) at best, O(n^2) at worst, and its memory usage is O(1). Merge sort is always O(n log n), but its memory usage is O(n). Explain which algorithm you would use to implement a function that takes an array of integers and returns the max integer in the collection, assuming that the length of the array is less than 1000. What if the array length is greater than 1000? 
 
 >	I believe this is very cool trick question and I would always use Bubble Sort because in the first iteration of bubble Sort my last element would always be the max Integer.Try it with example, you will see. So it does not really matter if the length1000. Infact Bubble Sort would essentially give you runtime of O(n) with only one iteration, last element always being max Int. While using Merge Sort would be costly in running time and memory usage i.e O(nlogn) and O(n) respectively.
 
 ---
 
-** Your best friend Betty thinks IMDB is too complicated and challenges you to create a simple movie web site. One page will display movies (with movie name, date it was released, and list of actors). Click on an actor and you're taken to the actor page (with actor name, birthday, bio, and list of movies actor has been in). Please outline the relational table structure of the database for this.. **
+ Your best friend Betty thinks IMDB is too complicated and challenges you to create a simple movie web site. One page will display movies (with movie name, date it was released, and list of actors). Click on an actor and you're taken to the actor page (with actor name, birthday, bio, and list of movies actor has been in). Please outline the relational table structure of the database for this.. 
 
 >   *   Movie(movie_id(primary), movie_name, movie_year)
 >   *   Actor(actor_id(primary), actor_name, actor_birthday, actor_bio)
@@ -184,7 +184,7 @@ def max_subsequence(a):
 
 ---
 
-** If you roll 5 standard six-sided dice, what's the probability that you get at least three 2s? **
+ If you roll 5 standard six-sided dice, what's the probability that you get at least three 2s? 
 
 >	(C_5^3 * 5^2 + C_5^4 * 5 + 1) / 6^5 = 23/648
 
@@ -196,7 +196,7 @@ def max_subsequence(a):
 
 #### An Activity to Further Your Gambling Addiction
 
-** Also: you are offered the following bet: we pay you $1000 if you roll at least three 2s but you have to pay LiveRamp $200 if you don't. Would you take the bet? Why or why not? **
+ Also: you are offered the following bet: we pay you $1000 if you roll at least three 2s but you have to pay LiveRamp $200 if you don't. Would you take the bet? Why or why not? 
 
 >   The other answer is correct except that the dice can occur in multiple orders/permutation
 
@@ -208,13 +208,13 @@ def max_subsequence(a):
 
 ---
 
-** Your friend Matt tells you to close your eyes while he rolls two dice. He promises you that he'll leave the room if and only if both of the dice show the same number. When you open your eyes, he's still in the room. What's the probability that the two dice sum to 8? **
+ Your friend Matt tells you to close your eyes while he rolls two dice. He promises you that he'll leave the room if and only if both of the dice show the same number. When you open your eyes, he's still in the room. What's the probability that the two dice sum to 8? 
 
 >	P = Pr(Sum is 8 and he is in the room) / Pr(He is in the room) = 4/36 / (36 - 6)/36 = 2/15
 
 ---
 
-*	** Coin Change (leetcode) **
+*	 Coin Change (leetcode) 
 
 ```cpp
 // Time:  O(n * k), n is the number of coins, k is the amount of money
@@ -238,7 +238,7 @@ public:
 };
 ```
 
-*	** word ladder II (leetcode) **
+*	 word ladder II (leetcode) 
 
 ---
 
