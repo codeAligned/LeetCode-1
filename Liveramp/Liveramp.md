@@ -69,7 +69,7 @@ int solution(vector<int> &A, int D) {
 >   I see the big data area so promising that everyone should be connected in some way through any form of data. As a Computer Science major undergraduate student, I had solid foundations on computer systems programming, but far more than enough skills on data science. So I took Machine Learning and Data Science courses online during this Summer, and had an overview of what we can do with a huge amount of data, which really excite me to engage in this area. Since LiveRamp is the leader in data connectivity, which perfectly matches my goal, I really want to join and discover more in the industry, hone my skills with the help of those excellent engineers, and fianlly contribute myself to this area.
 
 
-Interview Preparation
+Preparation
 ---
 
 #### 算法题：青蛙过河。

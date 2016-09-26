@@ -1,4 +1,15 @@
-### Godaddy OA
+### Godaddy
+
+#### My Online Assesment
+
+1. Count Duplicates
+
+2. Build the Subsequences
+
+3. Arranging Coins
+
+Preparation
+ ---
 
 *	Delete Node greater than X(LinkedList)
 
@@ -151,6 +162,34 @@ public:
 
 ---
 
+*   Subsequence, 可以参考subsets题，只不过由数字变为字符，而且不要空集
+```cpp
+void Helper(string& s, string& temp, int begin, vector<string>& result) {
+    for (int i = begin; i < s.length(); ++i) {
+        temp += s[i];
+        result.push_back(temp);
+        Helper(s, temp, i + 1, result);
+        temp = temp.substr(0, temp.size() - 1);
+    }
+}
+
+vector < string > buildSubsequences(string s) {
+    vector<string> result;
+    string temp = "";
+    Helper(s, temp, 0, result);
+    sort(result.begin(), result.end());
+    return result;
+}
+```
+
+---
+
+*   closest number
+
+>   给一串数字（据说是以字符串的形式给的，如"1 2 3 4 5"），返回所有closest pairs。closest pair即两个数的差的绝对值最小。给定的数字没有排序，所以需要先转化为数组，然后排序。所有的pair都使用逗号隔开并依次显示。
+
+---
+
 *	Braces: 输入一个array，判断括号是不是balance，比如"([{}])"是balance，"([}]"not balanced. 输出也是一个array，balance输出Yes，not balance输出No
 
 ---
@@ -163,7 +202,19 @@ public:
 
 ---
 
-*	Arranging coins：每一个层台阶放与台阶数相等的coins，返回最后一个放满的台阶数。eg. n=4, return 2; {1,2,1}; 三角形树
+*	Arranging coins：每一个层台阶放与台阶数相等的coins，返回最后一个放满的台阶数。eg. n=4, return 2; {1,2,1}; 三角形数
+```cpp
+void arrangeCoins(vector < long > coins) {
+    for (int i = 0; i < coins.size(); ++i) {
+        long long sum = 0;
+        long j = 1;
+        while (sum + j <= coins[i]) {
+            sum += j++;
+        }
+        cout << j - 1 << endl;
+    }
+}
+```
 
 ---
 
@@ -176,16 +227,4 @@ public:
 ---
 
 *   String Compression. String限定由大小写字母组成: 简单地说，就是如果某个字母x连续出现c次，若c=1，则原样输出x；若c>1，则缩写成xc的格式
-
----
-
-*   Subsequence, 可以参考subsets题，只不过由数字变为字符，而且不要空集
-
----
-
-*	closest number
-
->   给一串数字（据说是以字符串的形式给的，如"1 2 3 4 5"），返回所有closest pairs。closest pair即两个数的差的绝对值最小。给定的数字没有排序，所以需要先转化为数组，然后排序。所有的pair都使用逗号隔开并依次显示。
-
-
 
