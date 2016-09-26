@@ -3,6 +3,7 @@
 *	Delete Node greater than X(LinkedList)
 
 ```cpp
+// 203. Remove Linked List Elements.cpp
 // Time: O(n)
 // Space: O(1)
 
@@ -14,6 +15,7 @@
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
+// pointer to pointer to remove lisked list node
 class Solution {
 public:
     ListNode* removeElements(ListNode* head, int val) {
@@ -29,6 +31,7 @@ public:
         return head;
     }
 };
+
 ```
 
 ---
@@ -36,6 +39,7 @@ public:
 *	next permutation
 
 ```cpp
+// 31. Next Permutation.cpp
 // Time: O(N)
 // Space: O(1)
 
@@ -44,31 +48,32 @@ public:
     void nextPermutation(vector<int>& nums) {
         int k = -1;
         // Find the largest index k such that nums[k] < nums[k + 1]
-    	for (int i = nums.size() - 2; i >= 0; i--) {
-    		if (nums[i] < nums[i + 1]) {
-    			k = i;
-    			break;
-    		}
-    	} 
-    	// If no such index exists, the permutation is the last permutation
-    	if (k == -1) {
-    	    reverse(nums.begin(), nums.end());
-    	    return;
-    	}
-    	int l = -1;
-    	// Find the largest index l greater than k such that nums[k] < nums[l]
-    	for (int i = nums.size() - 1; i > k; i--) {
-    		if (nums[i] > nums[k]) {
-    			l = i;
-    			break;
-    		} 
-    	} 
-    	// Swap the value of nums[k] with that of nums[l]
-    	swap(nums[k], nums[l]);
-    	// Reverse the sequence from nums[k + 1] up to and including the final element nums[n].
-    	reverse(nums.begin() + k + 1, nums.end()); 
+        for (int i = nums.size() - 2; i >= 0; i--) {
+            if (nums[i] < nums[i + 1]) {
+                k = i;
+                break;
+            }
+        } 
+        // If no such index exists, the permutation is the last permutation
+        if (k == -1) {
+            reverse(nums.begin(), nums.end());
+            return;
+        }
+        int l = -1;
+        // Find the largest index l greater than k such that nums[k] < nums[l]
+        for (int i = nums.size() - 1; i > k; i--) {
+            if (nums[i] > nums[k]) {
+                l = i;
+                break;
+            } 
+        } 
+        // Swap the value of nums[k] with that of nums[l]
+        swap(nums[k], nums[l]);
+        // Reverse the sequence from nums[k + 1] up to and including the final element nums[n].
+        reverse(nums.begin() + k + 1, nums.end()); 
     }
 };
+
 ```
 
 ---
@@ -76,6 +81,7 @@ public:
 *	Merge Two Sorted Array: 将两个排序好的等长的array合并成一个
 
 ```cpp
+// 88. Merge Sorted Array.cpp
 // Time: O(N)
 // Space: O(1)
 
@@ -97,6 +103,7 @@ public:
             nums1[i--] = nums2[idx2--];
     }
 };
+
 ```
 
 ---
@@ -104,6 +111,7 @@ public:
 *   ZigZag Array: 最大，最小，第二大，第二小，第三大，第三小，....
 
 ```cpp
+// 6. ZigZag Conversion.cpp
 // Time:  O(n)
 // Space: O(s.length())
 
@@ -138,6 +146,7 @@ public:
         return result;
     }
 };
+
 ```
 
 ---
@@ -154,7 +163,7 @@ public:
 
 ---
 
-*	Arranging coins：每一个层台阶放与台阶数相等的coins，返回最后一个放满的台阶数。eg. n=4, return 2; {1,2,1};
+*	Arranging coins：每一个层台阶放与台阶数相等的coins，返回最后一个放满的台阶数。eg. n=4, return 2; {1,2,1}; 三角形树
 
 ---
 
@@ -178,8 +187,5 @@ public:
 
 >   给一串数字（据说是以字符串的形式给的，如"1 2 3 4 5"），返回所有closest pairs。closest pair即两个数的差的绝对值最小。给定的数字没有排序，所以需要先转化为数组，然后排序。所有的pair都使用逗号隔开并依次显示。
 
----
-
-*	三角形数问题，可以查wiki，有具体公式和解法。
 
 
