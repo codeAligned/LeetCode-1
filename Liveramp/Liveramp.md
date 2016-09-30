@@ -4,69 +4,63 @@
 
 *   task1. Monkey
 ```cpp
-// Time: O(N)
-// Space: O(N)
-
-#include <queue>
+#include <climits>
 
 int solution(vector<int> &A, int D) {
     // write your code in C++11 (g++ 4.8.2)
-    int size = A.size();
-    vector<int> earliestTime;
-    deque<int> dq;
-    if (D <= 0)
+    // no stone or can not jump
+    if (A.empty() || D == 0)
         return -1;
+    int length = A.size();
+    int binNum = length / D;
+    vector<int> time(binNum, INT_MAX);
     int count = 0;
-    for (int i = 0; i < size; ++i) {
-        // remove numbers out of range
-        while (!dq.empty() && dq.front() < i - D + 1)
-            dq.pop_front();
-        // remove numbers greater than the incoming number
-        while (!dq.empty() && A[i] != -1 && A[dq.back()] > A[i])
-            dq.pop_back();
-        // D -1 in a row will fail to cross river
+    for (int i = 0; i < length; ++i) {
+        int bin = i / D;
         if (A[i] != -1) {
-            dq.push_back(i);
             count = 0;
-        }
-        else
+            if (A[i] < time[bin])
+                time[bin] = A[i];
+        } else
             count += 1;
-        if (count == D)
+        if (count >= D)
             return -1;
-        // record earliest time for each sliding window
-        if (i >= D - 1)
-            earliestTime.push_back(A[dq.front()]);
     }
-    // cross river time depends on the biggest time among all earliest time
-    int max = -1;
-    for (size_t j = 0; j < earliestTime.size(); ++j) {
-        if (earliestTime[j] > max)
-            max = earliestTime[j];
+    int maxTime = -1;
+    for (int bin = 0; bin < binNum; ++bin) {
+        if (time[bin] > maxTime)
+            maxTime = time[bin];
     }
-    return max;
-}
+    return maxTime;
 ```
+
 *   task2. 
     *   explain
     *   why LiveRamp excite you.
 
 >   1.
 
->   I treat step length D as a window slot, which can represent the range of how far the monkey can reach at one time.
+>   If there is no stone or the monkey can not jump any length, it will never jump to the opposite bank.
 
->   Then I use a deque, which is a double-end queue, to record the index of the possible minimum time of reaching each window slot (length D). Then the goal becomes to find the maximum among all the possible minimum time.
+>   According to the step length D, divide the river length into bins that each bin has exactly D length(discard the final bin if its length is less than D). Use two vectors to respectively record:
 
->   As the sliding window moves on, the deque will pop from the front to kick out the index that is out of range. Then the deque will also compare the number on the back with the incoming number (according to the index). If the number in the deque is already bigger than the incoming number, then it has no chance to becoming the minimum, so we remove it from the back, and push the new number in the deque.
+>   1. the earliest time that there is stone in each bin.
+>   2. if there is stone in every position.
 
->   So at any time, the deque keeps the original sequence in order, as well as the minimum at the front.
+>   Then iterate over each position, decide if there is stone in each position and if the time in corresponding bin need to be updated.
 
->   And during the iteration, we need to handle the situation that there are D -1 in a row, which means there is no way to cross the river.
+>   Finally, check the two vectors:
 
->   Since the numbers are push to or pop from the deque only once, the time complexity of this algorithms is O(N), where N is the length of array A. While the space complexity is O(N) as well, because the dq is at most D in length, the earliestTime is at most N - D in length.
+>   1. For reach vector, if there are D position in a row that has no stone, then there is no way for the monkey to jump across the river. 
+>   2. If all bins has stone(s), then find the maximum time among all bins, which will decide the earliest time for the monkey to jump across the river.
+
+>   So the time complexity is O(N + N/D), the space complexity is O(N/D)
 
 >   2.
 
->   I see the big data area so promising that everyone should be connected in some way through any form of data. As a Computer Science major undergraduate student, I had solid foundations on computer systems programming, but far more than enough skills on data science. So I took Machine Learning and Data Science courses online during this Summer, and had an overview of what we can do with a huge amount of data, which really excite me to engage in this area. Since LiveRamp is the leader in data connectivity, which perfectly matches my goal, I really want to join and discover more in the industry, hone my skills with the help of those excellent engineers, and fianlly contribute myself to this area.
+>   I see the big data area so promising that everyone should be connected in some way through any form of data. As a Computer Science major student, I had solid foundations on computer systems programming, but that's far from enough. I still want to apply my skills on data science. So I took Machine Learning and Data Science and Engineering courses online during this Summer, and had an overview of what we can do with a huge amount of data, and how we can deal with them, which really excites me to engage in this area. 
+
+>   LiveRamp is the leader in data connectivity, exploiting the meaning of those data to better connect business and their customers. So I really want to join and discover more in this industry, work with brilliant engineers in LiveRamp, and fianlly contribute myself to this area.
 
 
 Preparation
@@ -118,6 +112,46 @@ public:
 >   因此，青蛙必定要在这N个bin之间跳正好N-1次（这以外的跳跃都是发生在bin内部，所以就不管了），才能到达X。我们只要看这N个bin间是不是建立起了N-1次联系就可以了。为此，我们给每个bin维护一个min和max值。每次加入一片叶子，就更新其对应bin的min/max值。然后检查：是否因为这个叶子加入，使得该bin和其相邻的bin能够建立起联系。如果是的话，“联系”值++。最后，能够跳到X的充要条件是“联系”值==N-1。
 
 >   该算法将每片叶子放入bin，检查与周围bin的连接情况等都是O(1)操作，因此最后总复杂度是O(arrLen)。空间复杂度则是O(X/D)。
+
+```cpp
+// 164. Maximum Gap.cpp
+// Time: O(N)
+// Space: O(N)
+
+// bucket sort
+class Solution {
+public:
+    int maximumGap(vector<int>& nums) {
+        if(nums.size() < 2)
+            return 0;
+        int maxNum = *max_element(nums.begin(), nums.end());
+        int minNum = *min_element(nums.begin(), nums.end());
+        //average gap from minNum to maxNum.
+        int bucketLen = (maxNum - minNum - 1) / (nums.size() - 1) + 1;
+        //number of buckets
+        int bucketNum = (maxNum - minNum) / bucketLen + 1;
+        vector<int> bucketsMin(bucketNum, INT_MAX);
+        vector<int> bucketsMax(bucketNum, INT_MIN);
+        //put into buckets
+        for(int i = 0; i < nums.size(); i ++) {
+            int bucketIdx = (nums[i] - minNum) / bucketLen;
+            bucketsMin[bucketIdx] = min(bucketsMin[bucketIdx], nums[i]);
+            bucketsMax[bucketIdx] = max(bucketsMax[bucketIdx], nums[i]);
+        }
+        int maxGap = INT_MIN;
+        int previous = minNum;
+        for(int i = 0; i < bucketNum; i ++)
+        {
+            if(bucketsMin[i] == INT_MAX && bucketsMax[i] == INT_MIN)
+                continue;   //empty
+            maxGap = max(maxGap, bucketsMin[i] - previous);
+            previous = bucketsMax[i];
+        }
+        return maxGap;
+    }
+};
+
+```
 
 <br>
 
