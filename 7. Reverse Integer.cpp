@@ -1,4 +1,4 @@
-// 7. Reverse Integer.cpp
+// 7. Reverse Integer
 // Time:  O(1)
 // Space: O(1)
 
@@ -17,3 +17,4 @@ public:
         return result;
     }
 };
+

@@ -1,4 +1,4 @@
-// 31. Next Permutation.cpp
+// 31. Next Permutation
 // Time: O(N)
 // Space: O(1)
 
@@ -32,3 +32,4 @@ public:
     	reverse(nums.begin() + k + 1, nums.end()); 
     }
 };
+

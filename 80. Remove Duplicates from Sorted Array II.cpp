@@ -1,4 +1,4 @@
-// 80. Remove Duplicates from Sorted Array II.cpp
+// 80. Remove Duplicates from Sorted Array II
 // Time: O(N)
 // Space: O(1)
 
@@ -15,3 +15,4 @@ public:
         return index;
     }
 };
+

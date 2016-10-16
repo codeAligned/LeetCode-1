@@ -1,4 +1,4 @@
-// 34. Search for a Range.cpp
+// 34. Search for a Range
 // Time:  O(logn)
 // Space: O(1)
 
@@ -29,3 +29,4 @@ public:
         return {-1, -1};
     }
 };
+

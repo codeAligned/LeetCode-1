@@ -1,4 +1,4 @@
-// 203. Remove Linked List Elements.cpp
+// 203. Remove Linked List Elements
 // Time: O(n)
 // Space: O(1)
 
@@ -26,3 +26,4 @@ public:
         return head;
     }
 };
+

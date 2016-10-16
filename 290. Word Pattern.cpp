@@ -1,4 +1,4 @@
-// 290. Word Pattern.cpp
+// 290. Word Pattern
 // Time:  O(n)
 // Space: O(n)
 
@@ -24,3 +24,4 @@ public:
         return true;
     }
 };
+

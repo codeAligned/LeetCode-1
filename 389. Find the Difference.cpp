@@ -1,4 +1,4 @@
-// 389. Find the Difference.cpp
+// 389. Find the Difference
 // Time:  O(nlogn)
 // Space: O(1)
 
@@ -15,3 +15,4 @@ public:
         return t[i];
     }
 };
+

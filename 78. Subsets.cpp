@@ -1,4 +1,4 @@
-// 78. Subsets.cpp
+// 78. Subsets
 // Time:  O(n!)
 // Space: O(n^3)
 
@@ -21,3 +21,4 @@ public:
         }
     }
 };
+

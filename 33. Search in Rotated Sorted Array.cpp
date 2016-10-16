@@ -1,4 +1,4 @@
-// 33. Search in Rotated Sorted Array.cpp
+// 33. Search in Rotated Sorted Array
 // Time:  O(n)
 // Space: O(1)
 
@@ -44,3 +44,4 @@ public:
         return -1;
     }
 };
+

@@ -1,4 +1,4 @@
-// 50. Pow(x, n).cpp
+// 50. Pow(x, n)
 // Time:  O(1)
 // Space: O(1)
 
@@ -22,3 +22,4 @@ public:
 		return ans;
     }
 };
+

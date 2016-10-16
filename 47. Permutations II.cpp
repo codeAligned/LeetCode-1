@@ -1,4 +1,4 @@
-// 47. Permutations II.cpp
+// 47. Permutations II
 // Time:  O(n!)
 // Space: O(n^2)
 
@@ -37,3 +37,4 @@ public:
         }
     }
 };
+

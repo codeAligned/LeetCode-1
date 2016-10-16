@@ -1,4 +1,4 @@
-// 3. Longest Substring Without Repeating Characters.cpp
+// 3. Longest Substring Without Repeating Characters
 // Time:  O(n)
 // Space: O(1)
 
@@ -18,3 +18,4 @@ public:
         return maxLen;
     }
 };
+

@@ -1,4 +1,4 @@
-// 278. First Bad Version.cpp
+// 278. First Bad Version
 // Time:  O(logn)
 // Space: O(1)
 
@@ -20,3 +20,4 @@ public:
         return start; // start == end;
     }
 };
+

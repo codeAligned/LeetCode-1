@@ -1,4 +1,4 @@
-// 239. Sliding Window Maximum.cpp
+// 239. Sliding Window Maximum
 // Time:  O(k * n)
 // Space: O(n)
 
@@ -43,3 +43,4 @@ public:
         return result;
     }
 };
+

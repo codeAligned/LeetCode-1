@@ -1,4 +1,4 @@
-// 39. Combination Sum.cpp
+// 39. Combination Sum
 // Time:  O(n!)
 // Space: O(n^2)
 
@@ -26,3 +26,4 @@ public:
         }
     }
 };
+

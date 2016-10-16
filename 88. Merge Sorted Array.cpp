@@ -1,4 +1,4 @@
-// 88. Merge Sorted Array.cpp
+// 88. Merge Sorted Array
 // Time: O(N)
 // Space: O(1)
 
@@ -20,3 +20,4 @@ public:
             nums1[i--] = nums2[idx2--];
     }
 };
+

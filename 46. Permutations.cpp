@@ -1,4 +1,4 @@
-// 46. Permutations.cpp
+// 46. Permutations
 // Time:  O(n!)
 // Space: O(n^2)
 
@@ -33,3 +33,4 @@ public:
 		}
     }
 };
+

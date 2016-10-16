@@ -1,4 +1,4 @@
-// 164. Maximum Gap.cpp
+// 164. Maximum Gap
 // Time: O(N)
 // Space: O(N)
 
@@ -34,3 +34,4 @@ public:
         return maxGap;
     }
 };
+

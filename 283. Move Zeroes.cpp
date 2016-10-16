@@ -1,4 +1,4 @@
-// 283. Move Zeroes.cpp
+// 283. Move Zeroes
 // Time:  O(n)
 // Space: O(1)
 
@@ -30,3 +30,4 @@ public:
             nums[insertPos++] = 0;
     }
 };
+

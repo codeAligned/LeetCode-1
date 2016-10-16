@@ -1,4 +1,4 @@
-// 6. ZigZag Conversion.cpp
+// 6. ZigZag Conversion
 // Time:  O(n)
 // Space: O(s.length())
 
@@ -33,3 +33,4 @@ public:
         return result;
     }
 };
+

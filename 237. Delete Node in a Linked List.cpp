@@ -1,4 +1,4 @@
-// 237. Delete Node in a Linked List.cpp
+// 237. Delete Node in a Linked List
 // Time: O(1)
 // Space: O(1)
 
@@ -20,3 +20,4 @@ public:
         free(nextNode);
     }
 };
+

@@ -1,4 +1,4 @@
-// 387. First Unique Character in a String.cpp
+// 387. First Unique Character in a String
 // Time:  O(n)
 // Space: O(1)
 
@@ -16,3 +16,4 @@ public:
         return -1;
     }
 };
+

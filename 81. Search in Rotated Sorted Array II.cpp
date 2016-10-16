@@ -1,4 +1,4 @@
-// 81. Search in Rotated Sorted Array II.cpp
+// 81. Search in Rotated Sorted Array II
 // Time: O(logn)
 // Space: O(1)
 
@@ -30,3 +30,4 @@ public:
         return false;
     }
 };
+

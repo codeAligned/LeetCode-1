@@ -1,4 +1,4 @@
-// 1. Two Sum.cpp
+// 1. Two Sum
 // Time:  O(n)
 // Space: O(n)
 
@@ -24,3 +24,4 @@ public:
         return result;
     }
 };
+

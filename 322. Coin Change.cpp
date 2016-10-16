@@ -1,4 +1,4 @@
-// 322. Coin Change.cpp
+// 322. Coin Change
 // Time:  O(n * k), n is the number of coins, k is the amount of money
 // Space: O(k)
 
@@ -18,3 +18,4 @@ public:
         return dp[amount] > amount ? -1 : dp[amount];
     }
 };
+

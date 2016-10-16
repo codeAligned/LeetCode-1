@@ -1,4 +1,4 @@
-// 101. Symmetric Tree.cpp
+// 101. Symmetric Tree
 // Time:  O(n)
 // Space: O(1)
 
@@ -62,3 +62,4 @@ public:
         return true;
     }
 };
+

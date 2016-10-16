@@ -1,4 +1,4 @@
-// 2. Add Two Numbers.cpp
+// 2. Add Two Numbers
 // Time:  O(n)
 // Space: O(n)
 
@@ -26,3 +26,4 @@ public:
         return pHead.next;
     }
 };
+

@@ -1,4 +1,4 @@
-// 77. Combinations.cpp
+// 77. Combinations
 // Time:  O(n!)
 // Space: O(n)
 
@@ -26,3 +26,4 @@ public:
         }
     }
 };
+

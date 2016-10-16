@@ -1,4 +1,4 @@
-// 21. Merge Two Sorted Lists.cpp
+// 21. Merge Two Sorted Lists
 // Time:  O(n)
 // Space: O(1)
 
@@ -29,3 +29,4 @@ public:
         return preHead.next;
     }
 };
+

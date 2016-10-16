@@ -1,4 +1,4 @@
-// 100. Same Tree.cpp
+// 100. Same Tree
 // Time:  O(n)
 // Space: O(1)
 
@@ -57,3 +57,4 @@ public:
         return stackP.empty() == stackQ.empty();
     }
 };
+

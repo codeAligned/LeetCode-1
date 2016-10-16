@@ -1,4 +1,4 @@
-// 23. Merge k Sorted Lists.cpp
+// 23. Merge k Sorted Lists
 // Time:  O(n)
 // Space: O(1)
 
@@ -40,3 +40,4 @@ public:
         return preHead.next;
     }
 };
+

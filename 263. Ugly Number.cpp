@@ -1,4 +1,4 @@
-// 263. Ugly Number.cpp
+// 263. Ugly Number
 // Time:  O(1)
 // Space: O(1)
 
@@ -16,3 +16,4 @@ public:
         return num == 1;
     }
 };
+
