@@ -16,13 +16,13 @@ public:
             return nums[0];
             
         int size = nums.size();
-        int result, maximum;
-        result = nums[0], maximum = nums[0];
+        int maxEndingHere, maxOfAll;
+        maxEndingHere = nums[0], maxOfAll = nums[0];
         for (int i = 1; i < size; ++i) {
-            result = max(result + nums[i], nums[i]);
-            maximum = max(maximum, result);
+            maxEndingHere = max(maxEndingHere + nums[i], nums[i]);
+            maxOfAll = max(maxOfAll, maxEndingHere);
         }
         
-        return maximum;
+        return maxOfAll;
     }
 };
