@@ -11,13 +11,13 @@ class Solution(object):
         """
         # key is the number and value is its index in the vector
         buf = {}
-        for i in range(len(nums)):
-            num_to_find = target - nums[i]
+        for i, num in enumerate(nums):
+            num_to_find = target - num
             
             # if num_to_find is found in map, return them
             if num_to_find in buf:
                 return [buf[num_to_find], i]
             else:
-                buf[nums[i]] = i;
+                buf[num] = i;
         
         return [];

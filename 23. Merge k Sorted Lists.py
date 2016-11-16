@@ -17,17 +17,16 @@ class Solution(object):
         :rtype: ListNode
         """
         heap = []
-        for l in lists:
-            if l:
-                heapq.heappush(heap, (l.val, l))
+        for lst in lists:
+            if lst:
+                heapq.heappush(heap, (lst.val, lst))
         
         dummy = cur = ListNode(0)
         while heap:
-            ml = heapq.heappop(heap)[1]
-            cur.next = ml
+            min_lst = heapq.heappop(heap)[1]
+            cur.next = min_lst
             cur = cur.next
-            if ml.next:
-                heapq.heappush(heap, (ml.next.val, ml.next))
+            if min_lst.next:
+                heapq.heappush(heap, (min_lst.next.val, min_lst.next))
             
         return dummy.next
-            
