@@ -1,9 +1,7 @@
 # 23. Merge k Sorted Lists
-# Time:  O(nlogk)
+# Time:  O(klogk)
 # Space: O(k)
 
-# Heap solution.
-import heapq
 # Definition for singly-linked list.
 # class ListNode(object):
 #     def __init__(self, x):
@@ -17,16 +15,15 @@ class Solution(object):
         :rtype: ListNode
         """
         heap = []
-        for lst in lists:
-            if lst:
-                heapq.heappush(heap, (lst.val, lst))
+        for l in lists:
+            if l:
+                heapq.heappush(heap, (l.val, l))
         
-        dummy = cur = ListNode(0)
+        cur = dummy = ListNode(0)
         while heap:
-            min_lst = heapq.heappop(heap)[1]
-            cur.next = min_lst
+            min_l = heapq.heappop(heap)[1]
+            cur.next = min_l
             cur = cur.next
-            if min_lst.next:
-                heapq.heappush(heap, (min_lst.next.val, min_lst.next))
-            
+            if min_l.next:
+                heapq.heappush(heap, (min_l.next.val, min_l.next))
         return dummy.next
