@@ -24,7 +24,7 @@
 * 118   Pascal's Triangle
 * 56    Merge Intervals
 * 378   Kth Smallest Element in a Sorted Matrix
-* 380   Insert Delete GetRandom O(1
+* 380   Insert Delete GetRandom O(1)
 * 323   Number of Connected Components in an Undirected Graph
 * 468   Validate IP Address
 * 407   Trapping Rain Water II
