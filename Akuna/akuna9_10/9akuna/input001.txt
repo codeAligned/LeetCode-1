@@ -1,0 +1,8 @@
+2016-09-20 12:01:36 (test.user) [DEBUG]: Starting TaskRunner job
+2016-09-20 12:01:37 (test.user) [INFO]: Did 17 items in 12 minutes
+2016-09-20 12:02:12 (test.user) [ERROR]: Could not insert data
+2016-09-20 12:02:21 (test.user) [DEBUG]: Job TaskRunner finished
+2016-09-21 10:16:00 (test.user) [DEBUG]: Starting TaskRunner job 
+2016-09-21 11:45:01 (test.user) [INFO]: Did 156 items in 57 minutes
+2016-09-20 12:02:12 (another.user) [ERROR]: Invalid key
+2016-09-21 14:01:56 (test.user) [DEBUG]: Job TaskRunner finished

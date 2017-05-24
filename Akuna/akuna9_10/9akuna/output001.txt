@@ -1,0 +1,3 @@
+job_avg: (TaskRunner, 34.5)
+job_errors: TaskRunner [Could not insert data, Invalid key]
+user_errors: another.user [Invalid key] test.user [Could not insert data]

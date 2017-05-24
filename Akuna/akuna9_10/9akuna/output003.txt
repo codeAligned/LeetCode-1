@@ -1,0 +1,3 @@
+job_avg: (NewRunner, 2.0) (TaskRunner, 8.0)
+job_errors: NewRunner [] TaskRunner [Cannot parse details, Could not insert data, Could not insert data, Invalid key]
+user_errors: user.one [Cannot parse details, Could not insert data] user.three [Invalid key] user.two [Could not insert data]

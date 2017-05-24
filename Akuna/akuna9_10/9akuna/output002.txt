@@ -1,0 +1,3 @@
+job_avg: (NewRunner, 2.0) (TaskRunner, 9.5)
+job_errors: NewRunner [] TaskRunner [Could not insert data]
+user_errors: user.one [Could not insert data]

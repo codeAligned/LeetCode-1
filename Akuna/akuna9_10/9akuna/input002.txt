@@ -1,0 +1,10 @@
+2016-09-20 12:01:36 (user.one) [DEBUG]: Starting TaskRunner job
+2016-09-20 12:01:37 (user.one) [INFO]: Did 8 items in 6 minutes
+2016-09-20 12:02:12 (user.one) [ERROR]: Could not insert data
+2016-09-20 12:02:21 (test.one) [DEBUG]: Job TaskRunner finished
+2016-09-20 12:01:36 (user.two) [DEBUG]: Starting NewRunner job
+2016-09-20 12:01:37 (user.two) [INFO]: Did 1 items in 2 minutes
+2016-09-20 14:01:56 (user.two) [DEBUG]: Job NewRunner finished
+2016-09-21 10:16:00 (user.three) [DEBUG]: Starting TaskRunner job 
+2016-09-21 11:45:01 (user.three) [INFO]: Did 12 items in 13 minutes
+2016-09-21 14:01:56 (user.three) [DEBUG]: Job TaskRunner finished
