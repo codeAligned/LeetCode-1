@@ -8,12 +8,12 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        if len(nums) == 0:
-            return 0
+        if len(nums) <= 1:
+            return len(nums);
         
         idx = 0
         for i in range(1, len(nums)):
-            if nums[idx] != nums[i]:
+            if nums[i - 1] != nums[i]:
                 idx += 1
                 nums[idx] = nums[i]
         return idx + 1

@@ -321,3 +321,56 @@ public static boolean dfs(int[][] m, int i, int j, int w, int h) {
 	return left || right || up || down;
 }
 ```
+
+* Level Field OA Pilot
+```python3
+def levelField(numRows, numColumns, field):
+    # WRITE YOUR CODE HERE
+    height_coord = []
+    for i in range(numRows):
+        for j in range(numColumns):
+            if field[i][j] > 1:
+                height_coord.append((field[i][j], (i, j)))
+    ordered_height_coord = sorted(height_coord)
+    
+    res = 0
+    for i, (height, coord) in enumerate(ordered_height_coord):
+        if not i % 2:
+            dest_coord = ordered_height_coord[i][1]
+            cur_coord = ordered_height_coord[i-1][1] if i > 0 else (0, 0)
+            
+            if i + 1 < len(ordered_height_coord):
+                next_height, next_coord = ordered_height_coord[i + 1]
+            else:
+                next_height, next_coord = -1, (-1, -1)
+            
+            q = [(dest_coord, 0)]
+            step_map = {dest_coord: 0}
+            
+            while q:
+                (x, y), step = q.pop(0)
+                
+                for dx, dy in (-1, 0), (0, 1), (1, 0), (0, -1):
+                    nx, ny = x + dx, y + dy
+                    if nx >= 0 and ny >= 0 and nx < numRows and ny < numColumns and \
+                    (field[nx][ny] == 1 or field[nx][ny] == next_height) and \
+                    (nx, ny) not in step_map:
+                        q.append(((nx, ny), step + 1))
+                        step_map[(nx, ny)] = step + 1
+                
+            if cur_coord not in step_map or next_coord != (-1, -1) and next_coord not in step_map:
+                return -1
+                
+            dest_x, dest_y = dest_coord
+            field[dest_x][dest_y] = 1
+            
+            if next_coord == (-1, -1):
+                res += step_map[cur_coord]
+            else:
+                res += step_map[cur_coord] + step_map[next_coord]
+            
+                next_x, next_y = next_coord
+                field[next_x][next_y] = 1
+            
+    return res
+```
