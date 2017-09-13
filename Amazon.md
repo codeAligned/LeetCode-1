@@ -323,7 +323,7 @@ public static boolean dfs(int[][] m, int i, int j, int w, int h) {
 ```
 
 * Level Field OA Pilot
-```python3
+```python
 def levelField(numRows, numColumns, field):
     # WRITE YOUR CODE HERE
     height_coord = []

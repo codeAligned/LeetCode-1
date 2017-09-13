@@ -19,7 +19,7 @@
 * 	165		Compare Version Numbers
 * 	207		Course Schedule
 * 	257		Binary Tree Paths
-* 	69		Sqrt(x
+* 	69		Sqrt(x)
 * 	21		Merge Two Sorted Lists
 * 	118		Pascal's Triangle
 * 	151		Reverse Words in a String
