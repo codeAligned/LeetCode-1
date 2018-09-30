@@ -2,18 +2,18 @@
 # Time:  O(N)
 # Space: O(N)
 
-class Solution(object):
+class Solution:
     def twoSum(self, nums, target):
         """
         :type nums: List[int]
         :type target: int
         :rtype: List[int]
         """
-        buf = {}
+        num_index_map = {}
         for i, num in enumerate(nums):
-            numToFind = target - num
-            if numToFind in buf:
-                return [buf[numToFind], i]
+            to_find = target - num
+            if to_find not in num_index_map:
+                num_index_map[num] = i
             else:
-                buf[num] = i
-        return [];
+                return [num_index_map[to_find], i]
+            

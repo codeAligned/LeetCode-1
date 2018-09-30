@@ -2,30 +2,35 @@
 # Time: O(N^2)
 # Space: O(1)
 
-class Solution(object):
+class Solution:
     def threeSum(self, nums):
         """
         :type nums: List[int]
         :rtype: List[List[int]]
         """
+        solution_list = []
+        if len(nums) < 3:
+            return solution_list
         nums.sort()
-        res = []
-        for i in range(len(nums) - 2):
-            if i != 0 and nums[i] == nums[i - 1]:
+        for i, num in enumerate(nums):
+            if num > 0:
+                break
+            if i > 0 and nums[i] == nums[i-1]:
                 continue
-            target = -nums[i]
-            l, r = i + 1, len(nums) - 1
-            while l < r:
-                if nums[l] + nums[r] == target:
-                    res.append([nums[i], nums[l], nums[r]])
-                    while l < r and nums[l] == nums[l + 1]:
-                        l += 1
-                    l += 1
-                    while l < r and nums[r] == nums[r - 1]:
-                        r -= 1
-                    r -= 1
-                elif nums[l] + nums[r] < target:
-                    l += 1
+            target = 0 - num
+            start, end = i + 1, len(nums) - 1
+            while start < end:
+                if nums[start] + nums[end] == target:
+                    solution_list.append([num, nums[start], nums[end]])
+                    while start < end and nums[start] == nums[start+1]:
+                        start += 1
+                    while start < end and nums[end] == nums[end-1]:
+                        end -= 1
+                    start += 1
+                    end -= 1
+                elif nums[start] + nums[end] < target:
+                    start += 1
                 else:
-                    r -= 1
-        return res
+                    end -= 1
+
+        return solution_list
