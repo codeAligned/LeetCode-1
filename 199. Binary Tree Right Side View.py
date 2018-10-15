@@ -9,8 +9,9 @@
 #         self.left = None
 #         self.right = None
 
-# bfs level ordering using queue
+# bfs level order traversal using queue
 from collections import deque
+
 class Solution(object):
     def rightSideView(self, root):
         """
@@ -19,18 +20,15 @@ class Solution(object):
         """
         if not root:
             return []
-        queue = deque()
-        queue.append(root)
+        queue = deque([root])
         rv = []
-        while queue:
+        while queue: # each level a loop
             size = len(queue)
-            while size:
+            rv.append(queue[-1].val)
+            for _ in range(size): # pop and add nodes if there is any
                 node = queue.popleft()
-                if size == 1:
-                    rv.append(node.val)
                 if node.left:
                     queue.append(node.left)
                 if node.right:
                     queue.append(node.right)
-                size -= 1
         return rv

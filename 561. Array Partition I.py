@@ -1,14 +1,12 @@
 # 561. Array Partition I
 # Time:  O(NlogN)
-# Space: O(logN)
+# Space: O(1)
 
-class Solution(object):
+class Solution:
     def arrayPairSum(self, nums):
         """
         :type nums: List[int]
         :rtype: int
         """
-        sum = 0
-        for i in sorted(nums)[::2]:
-            sum += i
-        return sum
+        nums.sort()
+        return sum(nums[::2])

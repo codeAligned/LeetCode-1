@@ -1,6 +1,6 @@
 # 56. Merge Intervals
-# Time: O(NlogN)
-# Space: O(N)
+# Time:  O(NlogN)
+# Space: O(1)
 
 # Definition for an interval.
 # class Interval(object):
@@ -8,19 +8,22 @@
 #         self.start = s
 #         self.end = e
 
+# sort and compare adjacent intervals
 class Solution(object):
     def merge(self, intervals):
         """
         :type intervals: List[Interval]
         :rtype: List[Interval]
         """
-        si = sorted(intervals, key=lambda x: x.start)
-        i = 0
-        while i < len(si) - 1:
-            if si[i].end >= si[i+1].start:
-                si[i].end = max(si[i].end, si[i+1].end)
-                del si[i+1]
+        if not intervals:
+            return []
+        intervals.sort(key=lambda x: x.start)
+        res = []
+        cur_interval = intervals[0]
+        for interval in intervals[1:]:
+            if interval.start <= cur_interval.end:
+                cur_interval.end = max(interval.end, cur_interval.end)
             else:
-                i += 1
-        
-        return si
+                res.append(cur_interval)
+                cur_interval = interval
+        return res + [cur_interval]

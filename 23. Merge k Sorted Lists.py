@@ -1,5 +1,5 @@
 # 23. Merge k Sorted Lists
-# Time:  O(klogk)
+# Time:  O(Nlogk)
 # Space: O(k)
 
 # Definition for singly-linked list.
@@ -8,6 +8,7 @@
 #         self.val = x
 #         self.next = None
 
+# use heap to maintain the streaming max/min value
 class Solution(object):
     def mergeKLists(self, lists):
         """
