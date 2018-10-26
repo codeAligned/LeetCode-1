@@ -8,7 +8,7 @@
 #         self.val = x
 #         self.left = None
 #         self.right = None
-
+# recursive parent->left->right
 class Solution(object):
     def preorderTraversal(self, root):
         """
@@ -16,31 +16,43 @@ class Solution(object):
         :rtype: List[int]
         """
         res = []
-        self.dfs(root, res)
+        self.pre(root, res)
         return res
-        
-    def dfs(self, root, res):
-        if root:
-            res.append(root.val)
-            self.dfs(root.left, res)
-            self.dfs(root.right, res)
+    
+    def pre(self, node, res):
+        if not node:
+            return None
+        res.append(node.val)
+        if node.left:
+            self.pre(node.left, res)
+        if node.right:
+            self.pre(node.right, res)
+
+
+# Time: O(N)
+# Space: O(N)
 
 # dfs iterative using stack
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+# iterative with stack (root->pop/visit root->push right->push left)
 class Solution(object):
     def preorderTraversal(self, root):
         """
         :type root: TreeNode
         :rtype: List[int]
         """
-        if not root:
-            return []
-        stack = [root]
         res = []
+        stack = [root] if root else []
         while stack:
-            node = stack.pop()
-            if node:
-                res.append(node.val)
-                stack.append(node.right)
-                stack.append(node.left)
-            
+            cur = stack.pop()
+            res.append(cur.val)
+            if cur.right:
+                stack.append(cur.right)
+            if cur.left:
+                stack.append(cur.left)
         return res

@@ -1,4 +1,4 @@
-# 102. Binary Tree Level Order Traversal
+# 107. Binary Tree Level Order Traversal II
 # Time: O(N)
 # Space: O(N)
 
@@ -11,17 +11,17 @@ from collections import deque
 #         self.right = None
 # bfs using queue
 class Solution(object):
-    def levelOrder(self, root):
+    def levelOrderBottom(self, root):
         """
         :type root: TreeNode
         :rtype: List[List[int]]
         """
         res = []
         queue = deque([root]) if root else []
-        while queue: # append nodes from left to right for each level
+        while queue:
             size = len(queue)
             level = []
-            for _ in range(size): 
+            for _ in range(size):
                 node = queue.popleft()
                 level.append(node.val)
                 if node.left:
@@ -29,4 +29,4 @@ class Solution(object):
                 if node.right:
                     queue.append(node.right)
             res.append(level)
-        return res
+        return res[::-1]
