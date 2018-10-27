@@ -31,10 +31,8 @@ class Solution(object):
         """
         res = []
         for num in nums:
-            idx = abs(num) - 1
-            if nums[idx] > 0:
-                nums[idx] = -nums[idx]
-            elif nums[idx] < 0:
-                res.append(idx + 1)
-
+            if nums[abs(num) - 1] < 0:
+                res.append(abs(num))
+            else:
+                nums[abs(num) - 1] *= -1
         return res

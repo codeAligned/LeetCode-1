@@ -9,8 +9,8 @@ class Solution(object):
         :type grid: List[List[int]]
         :rtype: int
         """
-        m = len(grid) if grid else 0
-        n = len(grid[0]) if grid[0] else 0
+        m = len(grid)
+        n = len(grid[0]) if m else 0
         res = 0
         for i in range(m):
             for j in range(n):

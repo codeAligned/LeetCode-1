@@ -9,8 +9,8 @@ class Solution(object):
         :type matrix: List[List[int]]
         :rtype: bool
         """
-        M = len(matrix) if matrix else 0
-        N = len(matrix[0]) if matrix[0] else 0
+        M = len(matrix)
+        N = len(matrix[0]) if M else 0
         for i in range(M-1):
             if matrix[i][:N-1] != matrix[i+1][1:]:
                 return False

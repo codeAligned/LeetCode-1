@@ -1,6 +1,6 @@
 # 682. Baseball Game
-# Time: O(grid)
-# Space: O(1)
+# Time: O(N)
+# Space: O(N)
 
 # str.isdigit() not true for negative numbers.
 class Solution(object):
