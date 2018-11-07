@@ -2,21 +2,18 @@
 # Time: O(N)
 # Space: O(1)
 
+# keep track of num zero index in the nums
 class Solution(object):
     def moveZeroes(self, nums):
         """
         :type nums: List[int]
         :rtype: void Do not return anything, modify nums in-place instead.
         """
-        zeros = 0
         idx = 0
-        for i, num in enumerate(nums):
-            if num == 0:
-                zeros += 1
-            else:
-                nums[idx] = num # move all non-zeros elements advance
+        for num in nums:
+            if num != 0:
+                nums[idx] = num
                 idx += 1
-        
-        for j in range(idx, idx + zeros):
-            nums[j] = 0
+        for i in range(idx, len(nums)):
+            nums[i] = 0
         
