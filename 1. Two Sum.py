@@ -2,6 +2,7 @@
 # Time:  O(N)
 # Space: O(N)
 
+# use a map to track number index mappings
 class Solution:
     def twoSum(self, nums, target):
         """
@@ -9,11 +10,10 @@ class Solution:
         :type target: int
         :rtype: List[int]
         """
-        num_index_map = {}
+        nums_index_map = {}
         for i, num in enumerate(nums):
             to_find = target - num
-            if to_find not in num_index_map:
-                num_index_map[num] = i
+            if to_find in nums_index_map:
+                return [nums_index_map[to_find], i]
             else:
-                return [num_index_map[to_find], i]
-            
+                nums_index_map[num] = i
