@@ -2,6 +2,7 @@
 # Time: O(N)
 # Space: O(N)
 
+# Definition for a binary tree node.
 # class TreeNode(object):
 #     def __init__(self, x):
 #         self.val = x
@@ -14,21 +15,16 @@ class Solution(object):
         :type root: TreeNode
         :rtype: bool
         """
-        if root:
-            return self.helper(root.left, float('-inf'), root.val, True) and self.helper(root.right, root.val, float('inf'), False)
-        else:
+        if not root:
             return True
-    
-    def helper(self, root, min, max, left):
-        if root:
-            if min < root.val < max:
-                if left:
-                    print(root.val)
-                    return self.helper(root.left, min, root.val, True) and self.helper(root.right, root.val, max, False)
-                else:
-                    print(root.val)
-                    return self.helper(root.left, min, root.val, True) and self.helper(root.right, root.val, max, False)
-            else:
-                return False
-        else:
+        
+        return self.helper(root, float('-inf'), float('inf'))
+        
+    def helper(self, root, min_val, max_val): # use helper to keep track of min and max for the root.val
+        if not root:
             return True
+        
+        if min_val < root.val < max_val:
+            return self.helper(root.left, min_val, root.val) and self.helper(root.right, root.val, max_val)
+        
+        return False
