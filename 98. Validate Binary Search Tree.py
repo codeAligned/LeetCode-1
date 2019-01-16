@@ -1,6 +1,6 @@
 # 98. Validate Binary Search Tree
 # Time: O(N)
-# Space: O(N)
+# Space: O(logN)
 
 # Definition for a binary tree node.
 # class TreeNode(object):
@@ -9,6 +9,7 @@
 #         self.left = None
 #         self.right = None
 
+# DFS recursive validate BST
 class Solution(object):
     def isValidBST(self, root):
         """
