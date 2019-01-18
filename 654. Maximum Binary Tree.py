@@ -1,8 +1,8 @@
 # 654. Maximum Binary Tree
-# Time:  O(N^k)
-# Space: O(N^k)
+# Time:  O(NlogN)
+# Space: O(NlogN)
 
-# recursive build maximum binary tree for left and right sub-trees until nums is empty
+# recursive build Maximum Binary Tree for left and right sub-trees until nums is empty
 class Solution:
     def constructMaximumBinaryTree(self, nums):
         """

@@ -45,7 +45,7 @@ class Solution(object):
 #         self.left = None
 #         self.right = None
 
-# DFS recursive find out symmetric
+# DFS recursive find out symmetric, need to carry left and right to compare symmetric for each node
 class Solution(object):
     def isSymmetric(self, root):
         """
@@ -62,5 +62,6 @@ class Solution(object):
         if left.val != right.val:
             return False
         
-        # pass in helper with symmetric order
+        # pass in helper with symmetric order, 
+        # compare left.left and right.right, compare left.right and right.left
         return self.helper(left.left, right.right) and self.helper(left.right, right.left)

@@ -9,7 +9,7 @@
 #         self.left = None
 #         self.right = None
 
-# DFS recursive validate BST
+# DFS recursive validate BST, need to carry current min and max to validate for each node.
 class Solution(object):
     def isValidBST(self, root):
         """
