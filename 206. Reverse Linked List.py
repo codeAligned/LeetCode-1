@@ -8,19 +8,17 @@
 #         self.val = x
 #         self.next = None
 
+# need three variables to track the left, current, and right nodes
 class Solution(object):
     def reverseList(self, head):
         """
         :type head: ListNode
         :rtype: ListNode
         """
-        if not head:
-            return head
-        
-        left, mid, right = None, head, None
-        while mid:
-            right = mid.next
-            mid.next = left
-            left = mid
-            mid = right
+        left, cur, right = None, head, None 
+        while cur:
+            right = cur.next
+            cur.next = left
+            left = cur
+            cur = right
         return left

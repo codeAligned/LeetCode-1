@@ -1,11 +1,16 @@
 # 344. Reverse String
-# Time: O(N)
-# Space: O(N)
+# Time: O(N/2)
+# Space: O(1)
 
-class Solution(object):
+# switch the left and right chars until middle
+class Solution:
     def reverseString(self, s):
         """
         :type s: str
         :rtype: str
         """
-        return s[::-1]
+        for i in range(len(s)//2):
+            left = s[i]
+            right = s[len(s)-1-i]
+            s[i] = right
+            s[len(s)-1-i] = left
