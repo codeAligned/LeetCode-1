@@ -16,5 +16,5 @@ class Solution(object):
             for c in coins:
                 if c <= a:
                     dp[a] = min(dp[a], dp[a-c] + 1)
-            print(dp)
+
         return -1 if dp[amount] > amount else dp[amount]

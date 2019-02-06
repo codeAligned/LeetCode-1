@@ -1,15 +1,12 @@
 # 20. Valid Parentheses
 # Time: O(N)
-# Space: O(N/2)
+# Space: O(N)
 
-class Solution(object):
-    def isValid(self, s):
-        """
-        :type s: str
-        :rtype: bool
-        """
+# use stack and map to match pairs.
+class Solution:
+    def isValid(self, s: 'str') -> 'bool':
         stack = []
-        p = {"[":"]", "{":"}", "(":")"}
+        p = {'{': '}', '[': ']', '(': ')'}
         for c in s:
             if c in p:
                 stack.append(p[c])
@@ -17,4 +14,5 @@ class Solution(object):
                 stack.pop()
             else:
                 return False
+
         return len(stack) == 0

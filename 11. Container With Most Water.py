@@ -2,20 +2,20 @@
 # Time: O(N)
 # Space: O(1)
 
-class Solution(object):
-    def maxArea(self, height):
-        """
-        :type height: List[int]
-        :rtype: int
-        """
-        water = 0;
-        i = 0
-        j = len(height) - 1
-        while (i < j):
-            h = min(height[i], height[j]);
-            water = max(water, (j - i) * h);
-            while height[i] <= h and i < j: 
-                i += 1
-            while height[j] <= h and i < j:
-                j -= 1
-        return water;
+# move from sides to center to get the maximum amount of water
+class Solution:
+    def maxArea(self, height: 'List[int]') -> 'int':
+        max_water = 0
+        left = 0
+        right = len(height) - 1
+        while left < right:
+            water = min(height[left], height[right]) * (right - left)
+            if water > max_water:
+                max_water = water
+            
+            if height[left] >= height[right]:
+                right -= 1
+            else:
+                left += 1
+        
+        return max_water
