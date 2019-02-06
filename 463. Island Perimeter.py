@@ -16,6 +16,7 @@ class Solution(object):
             for j in range(n):
                 if grid[i][j] == 1:
                     res += 4
+                    # minus one if anything adjacent grid is 1
                     if i > 0 and grid[i-1][j] == 1:
                         res -= 1
                     if j > 0 and grid[i][j-1] == 1:

@@ -20,7 +20,7 @@ class Solution(object):
             if l:
                 heapq.heappush(heap, (l.val, l))
             
-        cur = dummy = ListNode(0)
+        cur = dummy = ListNode(0) # use a dummy node to get the head of the list
         while heap:
             min_l = heapq.heappop(heap)[1]
             cur.next = min_l
